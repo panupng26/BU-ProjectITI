@@ -27,26 +27,42 @@
                             <thead>
                                 <tr>
                                     <th scope="col">ลำดับ</th>
-                                    <th scope="col">เรื่อง</th>
-                                    <th scope="col">ลิงค์เอกสารล่าสุด</th>
+                                    <th scope="col">ชื่อเรื่อง</th>
+                                    <th scope="col">ลิงค์เข้าสู่เอกสาร</th>
                                     <th scope="col">เครื่องมือ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($googlelink as $row)
+                                
+                                        
                                 <tr>
+                                   
                                     <th>{{$googlelink->firstItem()+$loop->index}}</th>
                                     <td>ลิงค์เอกสารวิชาโครงงานล่าสุด</td>
                                     <td>
                                     <a href="{{$row->linkweb}}" target="_blank">ลิงค์เข้าสู่เอกสาร</a>
                                     </td>
                                     <td>
-                                    <form action="{{route('admin.FormUpdateManagePeperproject')}}" method="get">
-                                        <input type="hidden" name="googledrive_id" value="{{$row->googledrive_id}}">
-                                        <button class="btn btn-success" type="summit">แก้ไข</button>
-                                    </form>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <form action="{{route('admin.FormUpdateManagePeperproject')}}" method="get">
+                                            <input type="hidden" name="googledrive_id" value="{{$row->googledrive_id}}">
+                                            <button class="btn btn-success" type="summit">แก้ไข</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <form action="#" method="get">
+                                            <input type="hidden" name="googledrive_id" value="{{$row->googledrive_id}}">
+                                            <button class="btn btn-danger" type="summit">ลบ</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm-6"></div>
+                                    </div>
                                     </td>
+                                  
                                 </tr>
+                                
                                 @endforeach
                             </tbody>
                         </table>

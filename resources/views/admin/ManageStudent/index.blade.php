@@ -19,6 +19,18 @@
             </div>
         </div>
         <div class="card-body">
+        <div class="container">
+        <!-- <form action="#" method="get">
+        <input class="form-control mb-4" id="tableSearch" type="text"
+            placeholder="ค้นหาข้อมูล">
+        <button type="button" class="btn btn-primary">ค้นหา</button>
+        </form> -->
+        <form class="form-inline my-2 my-lg-0 float-right">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <br>
+        <br>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -76,6 +88,7 @@
             </table>
             {{ $student->links('vendor.pagination.custom') }}
         </div>
+    </div>
     </div>
     <!-- //!end card -->
 @endsection
