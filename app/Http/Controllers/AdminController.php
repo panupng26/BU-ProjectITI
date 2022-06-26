@@ -83,14 +83,14 @@ class AdminController extends Controller
                 'email.required'=>"กรุณาป้อนอีเมล",
                 'email.max' =>"ห้ามป้อนเกิน 60 ตัวอักษร",
             ]);
-        
 
-        
+
+
         $user = User::find($request->users_id)->update([
             'name' => $request->name,
             'email' => $request->email
         ]);
-        
+
         $student = Student::find($request->student_id)->update([
             'email'=>$request->email,
             'name' => $request->name,
@@ -127,7 +127,7 @@ class AdminController extends Controller
         );
         $user = new User;
         $student = new Student;
-        $student->status_project1_id = 1; 
+        $student->status_project1_id = 1;
         $student->status_project2_id = 1;
         $student->project_id = null;
         $student->id_student = $request->id_student;
@@ -147,7 +147,7 @@ class AdminController extends Controller
             }
             //endcheck
 
-            $student->project1_schoolyear_id = $request->schoolyear_id; 
+            $student->project1_schoolyear_id = $request->schoolyear_id;
             $student->project1_schoolterm_id = $request->schoolterm_id;
 
             $student->project2_schoolyear_id = null;
@@ -162,7 +162,7 @@ class AdminController extends Controller
                 }
             }
             //endcheck
-            
+
             $student->project2_schoolyear_id = $request->schoolyear_id;
             $student->project2_schoolterm_id = $request->schoolterm_id;
         }
@@ -183,8 +183,8 @@ class AdminController extends Controller
         $datausercheck = User::select("*")
                                 ->where("email","=",$request->email)
                                 ->get();
-        
-        $useridtext;
+
+        $useridtext = '';
         foreach($datausercheck as $data)
         {
             $useridtext = $data->id;
@@ -216,12 +216,12 @@ class AdminController extends Controller
             'file.mimes' =>"นามสกุลไฟล์ไม่ถูกต้องจะต้องเป็น xls และ xlsx"
         ]);
         $path = $request->file('file')->getRealPath();
-        
+
         if($request->list_check == 1)
         {
             $data = Excel::import(new StudentImport($request->schoolyear_id,$request->schoolterm_id,$request->list_check),$path);
         }else{
-            $data = Excel::import(new StudentCollectionImport($request->schoolyear_id,$request->schoolterm_id),$path); 
+            $data = Excel::import(new StudentCollectionImport($request->schoolyear_id,$request->schoolterm_id),$path);
         }
         return redirect()->route('admin.ManageStudent')->with('success','เพิ่มข้อมูลจาก Excel สำเร็จ');
     }

@@ -64,6 +64,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth','PreventBackHis
 Route::get('/dashboard',[AdminController::class,'index'])->name('admin.dashboard');
 Route::get('/ManageUser/index',[AdminController::class,'ManageUser_index'])->name('admin.ManageUser');
 Route::post('/ManageUser/Resetpassword',[AdminController::class,'ManageUser_reset'])->name('admin.ManageUser.reset');
+
+
 //ManageStudent
 Route::get('/ManageStudent/index',[AdminController::class,'ManageStudent_index'])->name('admin.ManageStudent');
 Route::get('/ManageStudent/Form_Add',[AdminController::class,'ManageStudent_FormAdd'])->name('admin.FormAddManageStudent');

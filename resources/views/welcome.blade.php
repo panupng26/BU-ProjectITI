@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="#page-top">
-                    
+
                     Bu-ProjectITI</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -164,6 +164,6 @@
         </footer>
   <script src="{{ asset('vendors/dist/js/mainpage.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
   </body>
 </html>
